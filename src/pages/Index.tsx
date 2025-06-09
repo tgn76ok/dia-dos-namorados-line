@@ -6,6 +6,7 @@ import LoveEras from "@/components/LoveEras";
 import LoveGallery from "@/components/LoveGallery";
 import Celebration from "@/components/Celebration";
 import Footer from "@/components/Footer";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <LoveGallery />
       <Celebration />
       <Footer />
+      <MusicPlayer />
     </div>
   );
 };
