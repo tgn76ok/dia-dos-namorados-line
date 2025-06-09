@@ -2,47 +2,47 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, MessageCircleHeart } from "lucide-react";
 
-const gallery = [
+const loveMessages = [
   {
-    title: "Primeiras Declarações",
-    description: "As mais antigas declarações de amor gravadas em pedra e papiro",
-    quote: "Meu coração te escolheu para amar",
-    period: "Antigo Egito",
+    title: "Seu Sorriso",
+    description: "A coisa mais linda que existe no meu mundo",
+    quote: "Quando você sorri, meu coração para de bater por um segundo",
+    period: "Todos os Dias",
     color: "from-amber-400 to-orange-500"
   },
   {
-    title: "Poesia Medieval",
-    description: "Versos de trovadores que ecoam através dos séculos",
-    quote: "Minha senhora, vós sois meu sol e minha lua",
-    period: "França Medieval",
+    title: "Seus Olhos",
+    description: "Onde encontro paz e me perco de amor",
+    quote: "Nos seus olhos vejo meu futuro e toda felicidade que desejo",
+    period: "Sempre",
     color: "from-purple-400 to-pink-500"
   },
   {
-    title: "Sonetos de Shakespeare",
-    description: "O bardo eternizou o amor em versos imortais",
-    quote: "Devo comparar-te a um dia de verão?",
-    period: "Inglaterra Elizabetana",
+    title: "Sua Risada",
+    description: "A música mais bonita que já escutei",
+    quote: "Sua risada é capaz de curar qualquer tristeza no meu coração",
+    period: "Para Sempre",
     color: "from-rose-400 to-red-500"
   },
   {
-    title: "Cartas Românticas",
-    description: "Correspondências apaixonadas que atravessaram oceanos",
-    quote: "Minha alma reconheceu a tua antes mesmo de meus olhos te verem",
-    period: "Era Vitoriana",
+    title: "Seu Abraço",
+    description: "Meu lugar favorito no mundo inteiro",
+    quote: "Em seus braços encontro minha casa, meu refúgio, minha paz",
+    period: "Eternamente",
     color: "from-pink-400 to-rose-500"
   },
   {
-    title: "Músicas de Amor",
-    description: "Melodias que fizeram corações baterem em uníssono",
-    quote: "All you need is love, love is all you need",
-    period: "Século XX",
+    title: "Sua Voz",
+    description: "As palavras mais doces que chegam aos meus ouvidos",
+    quote: "Quando você fala meu nome, sinto que sou a pessoa mais especial do mundo",
+    period: "Infinitamente",
     color: "from-red-400 to-pink-500"
   },
   {
-    title: "Amor Digital",
-    description: "Mensagens que viajam na velocidade da luz",
-    quote: "💕 Você é meu emoji favorito 💕",
-    period: "Era Moderna",
+    title: "Seu Amor",
+    description: "O presente mais precioso que a vida me deu",
+    quote: "Seu amor me fez descobrir quem eu realmente sou e quem posso ser",
+    period: "Por Toda Vida",
     color: "from-violet-400 to-purple-500"
   }
 ];
@@ -53,15 +53,15 @@ const LoveGallery = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-foreground">
-            Galeria de Momentos Românticos
+            Tudo o Que Amo em Você
           </h2>
           <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-            Uma coleção de momentos, palavras e gestos que definiram o amor através dos tempos.
+            Cada pequeno detalhe seu me faz te amar ainda mais a cada dia que passa.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {gallery.map((item, index) => (
+          {loveMessages.map((item, index) => (
             <Card 
               key={index}
               className="group glass-effect border-white/30 hover:border-white/50 transition-all duration-300 transform hover:scale-105"

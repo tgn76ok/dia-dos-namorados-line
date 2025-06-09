@@ -17,7 +17,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <Heart className="h-8 w-8 text-primary animate-pulse-heart" />
             <span className="text-xl font-playfair font-bold text-gradient">
-              História do Amor
+              Para Meu Amor
             </span>
           </div>
           
@@ -26,25 +26,25 @@ const Header = () => {
               onClick={() => scrollToSection('timeline')}
               className="text-foreground/80 hover:text-primary transition-colors"
             >
-              Timeline
+              Nossa História
             </button>
             <button 
               onClick={() => scrollToSection('eras')}
               className="text-foreground/80 hover:text-primary transition-colors"
             >
-              Eras do Amor
+              Por Que Te Amo
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
               className="text-foreground/80 hover:text-primary transition-colors"
             >
-              Galeria
+              Meus Sentimentos
             </button>
             <Button 
               onClick={() => scrollToSection('celebration')}
               className="romantic-gradient text-white hover:opacity-90 transition-opacity"
             >
-              Celebre o Amor
+              Minhas Promessas
             </Button>
           </div>
         </nav>

@@ -9,10 +9,10 @@ const Celebration = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-gradient">
-            Celebre Seu Amor Hoje
+            Promessas do Meu Coração
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Inspirado por séculos de romance, que tal criar sua própria história de amor?
+            Estas são as promessas que faço para você, meu amor, hoje e sempre.
           </p>
         </div>
 
@@ -23,10 +23,10 @@ const Celebration = () => {
                 <MessageCircleHeart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-playfair font-bold mb-3 text-foreground">
-                Escreva uma Carta
+                Te Amar Todos os Dias
               </h3>
               <p className="text-muted-foreground">
-                Resgute a tradição romântica das cartas de amor escritas à mão.
+                Prometo demonstrar meu amor por você em cada gesto, palavra e olhar.
               </p>
             </CardContent>
           </Card>
@@ -37,10 +37,10 @@ const Celebration = () => {
                 <Calendar className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-playfair font-bold mb-3 text-foreground">
-                Planeie um Encontro
+                Criar Memórias Juntos
               </h3>
               <p className="text-muted-foreground">
-                Crie momentos especiais inspirados nos grandes romances da história.
+                Cada momento ao seu lado será uma nova aventura e uma memória preciosa.
               </p>
             </CardContent>
           </Card>
@@ -51,10 +51,10 @@ const Celebration = () => {
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-playfair font-bold mb-3 text-foreground">
-                Declare Seu Amor
+                Estar Sempre Aqui
               </h3>
               <p className="text-muted-foreground">
-                Use as lições do passado para expressar seus sentimentos únicos.
+                Nos bons e maus momentos, você sempre terá meu apoio incondicional.
               </p>
             </CardContent>
           </Card>
@@ -64,9 +64,10 @@ const Celebration = () => {
           <div className="max-w-2xl mx-auto mb-8 p-8 glass-effect rounded-2xl border border-primary/20">
             <Heart className="w-12 h-12 mx-auto mb-4 text-primary animate-pulse-heart" />
             <h3 className="text-2xl font-playfair font-bold mb-4 text-foreground">
-              "O amor é a única força capaz de transformar um inimigo em amigo."
+              "Você é meu sol, minha lua, minha estrela. 
+              Você é tudo o que eu sempre sonhei e muito mais."
             </h3>
-            <p className="text-primary font-semibold">- Martin Luther King Jr.</p>
+            <p className="text-primary font-semibold">- Com todo meu amor ❤️</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -74,7 +75,7 @@ const Celebration = () => {
               size="lg"
               className="romantic-gradient text-white hover:opacity-90 transition-opacity px-8 py-4 text-lg"
             >
-              Comece Sua História
+              Eu Te Amo Para Sempre
               <Heart className="ml-2 w-5 h-5" />
             </Button>
             <Button 
@@ -82,7 +83,7 @@ const Celebration = () => {
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-white transition-colors px-8 py-4 text-lg"
             >
-              Compartilhe o Amor
+              Você É Meu Mundo
             </Button>
           </div>
         </div>

@@ -2,47 +2,47 @@
 import { Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-const timelineData = [
+const ourTimeline = [
   {
-    era: "Antiguidade",
-    period: "3000 a.C. - 500 d.C.",
-    title: "Os Primeiros Sussurros do Amor",
-    description: "Na antiga Mesopotâmia, Egito e Grécia, o amor era celebrado através de poesia épica, rituais sagrados e festivais dedicados às divindades do amor como Afrodite e Vênus.",
+    era: "Primeiro Olhar",
+    period: "O Início de Tudo",
+    title: "Quando Te Vi Pela Primeira Vez",
+    description: "Naquele momento, o mundo parou. Meu coração disparou e eu soube que algo especial estava começando. Você era a pessoa mais linda que eu já tinha visto.",
     color: "from-amber-400 to-orange-500"
   },
   {
-    era: "Idade Média",
-    period: "500 - 1500 d.C.",
-    title: "O Amor Cortês",
-    description: "Surgiu o conceito de amor cortês, onde cavaleiros dedicavam sua vida a uma dama idealizada. Os trovadores cantavam canções de amor em castelos por toda a Europa.",
+    era: "Primeiras Conversas",
+    period: "Descobrindo Você",
+    title: "Conhecendo Sua Alma",
+    description: "A cada conversa, eu me apaixonava mais. Sua inteligência, seu humor, sua forma única de ver o mundo. Você era ainda mais incrível do que imaginei.",
     color: "from-purple-400 to-pink-500"
   },
   {
-    era: "Renascimento",
-    period: "1400 - 1600 d.C.",
-    title: "A Arte do Romance",
-    description: "Shakespeare imortalizou o amor em suas obras, enquanto artistas como Botticelli pintavam Vênus. O amor tornou-se uma forma de arte refinada e sublime.",
+    era: "Primeiro Beijo",
+    period: "Magia Pura",
+    title: "O Momento Mais Doce",
+    description: "Quando nossos lábios se tocaram pela primeira vez, senti que estava vivendo um sonho. Foi perfeito, foi mágico, foi o início da nossa história.",
     color: "from-rose-400 to-red-500"
   },
   {
-    era: "Era Moderna",
-    period: "1600 - 1900 d.C.",
-    title: "Cartas de Amor e Romantismo",
-    description: "A era das cartas de amor elaboradas, jardins românticos e o movimento romântico na literatura. O amor ganhou profundidade emocional e expressão artística.",
+    era: "Namorando",
+    period: "Aprendendo a Amar",
+    title: "Construindo Nossa História",
+    description: "Cada dia ao seu lado é uma nova aventura. Descobrindo seus gostos, suas manias, seus sonhos. Me apaixonando mais e mais a cada momento.",
     color: "from-pink-400 to-rose-500"
   },
   {
-    era: "Século XX",
-    period: "1900 - 2000 d.C.",
-    title: "Cinema e Música do Amor",
-    description: "Hollywood criou os filmes românticos, enquanto a música popular celebrava o amor. O Dia dos Namorados tornou-se uma celebração global.",
+    era: "Hoje",
+    period: "Amor Crescendo",
+    title: "Te Amando Mais a Cada Dia",
+    description: "Nosso amor só cresce. Você continua me surpreendendo, me fazendo rir, me fazendo sentir a pessoa mais sortuda do mundo por ter você.",
     color: "from-red-400 to-pink-500"
   },
   {
-    era: "Era Digital",
-    period: "2000 - Presente",
-    title: "Amor na Era Conectada",
-    description: "Apps de relacionamento, mensagens instantâneas e redes sociais transformaram como expressamos e encontramos o amor no mundo moderno.",
+    era: "Futuro",
+    period: "Para Sempre",
+    title: "Nossos Sonhos Juntos",
+    description: "Quero construir uma vida inteira ao seu lado. Compartilhar sonhos, superar desafios, criar memórias inesquecíveis. Você é meu para sempre.",
     color: "from-violet-400 to-purple-500"
   }
 ];
@@ -53,11 +53,10 @@ const Timeline = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-gradient">
-            Linha do Tempo do Amor
+            Nossa História de Amor
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Viaje através dos séculos e descubra como o amor evoluiu, 
-            desde as primeiras civilizações até os dias modernos.
+            Cada momento vivido com você é especial e merece ser lembrado para sempre.
           </p>
         </div>
 
@@ -66,7 +65,7 @@ const Timeline = () => {
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full romantic-gradient rounded-full"></div>
 
           <div className="space-y-16">
-            {timelineData.map((item, index) => (
+            {ourTimeline.map((item, index) => (
               <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                   <Card className="glass-effect border-primary/20 hover:border-primary/40 transition-all duration-300 transform hover:scale-105">

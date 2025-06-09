@@ -26,18 +26,18 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center mb-6">
-            <Calendar className="w-12 h-12 text-primary mr-4" />
-            <span className="text-primary font-semibold text-lg">14 de Fevereiro</span>
+            <Heart className="w-12 h-12 text-primary mr-4 animate-pulse-heart" />
+            <span className="text-primary font-semibold text-lg">Para Você, Meu Amor</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6 animate-fade-in-up">
-            Uma Jornada Através da
-            <span className="block text-gradient">História do Amor</span>
+            Eu Te Amo Mais do que
+            <span className="block text-gradient">Palavras Podem Expressar</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Desde os primeiros sussurros de romance na antiguidade até as declarações modernas, 
-            descubra como o amor evoluiu através dos séculos e continua a nos inspirar hoje.
+            Você é a luz que ilumina meus dias, a razão do meu sorriso e o amor da minha vida. 
+            Esta página é dedicada a você, para mostrar o quanto você significa para mim.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -46,7 +46,7 @@ const Hero = () => {
               size="lg" 
               className="romantic-gradient text-white hover:opacity-90 transition-opacity px-8 py-4 text-lg"
             >
-              Começar a Jornada
+              Nossa História de Amor
               <Heart className="ml-2 w-5 h-5" />
             </Button>
             <Button 
@@ -54,7 +54,7 @@ const Hero = () => {
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-white transition-colors px-8 py-4 text-lg"
             >
-              Descobrir Mais
+              Meus Sentimentos
             </Button>
           </div>
         </div>
