@@ -4,17 +4,21 @@ import { Play, Pause, Volume2, VolumeX, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+// Configure aqui o caminho da sua música
+const MUSIC_CONFIG = {
+  url: "/path/to/your/music.mp3", // Substitua pelo caminho da sua música
+  title: "Nossa Música Especial",
+  artist: "Nosso Amor"
+};
+
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [audioUrl, setAudioUrl] = useState<string>("");
-  const [songTitle, setSongTitle] = useState("Nossa Música");
   
   const audioRef = useRef<HTMLAudioElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -30,11 +34,11 @@ const MusicPlayer = () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
     };
-  }, [audioUrl]);
+  }, []);
 
   const togglePlay = () => {
     const audio = audioRef.current;
-    if (!audio || !audioUrl) return;
+    if (!audio) return;
 
     if (isPlaying) {
       audio.pause();
@@ -68,16 +72,6 @@ const MusicPlayer = () => {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setAudioUrl(url);
-      setSongTitle(file.name.replace(/\.[^/.]+$/, ""));
-      setIsPlaying(false);
-    }
-  };
-
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -93,106 +87,65 @@ const MusicPlayer = () => {
             <h3 className="font-semibold text-foreground">Player de Música</h3>
           </div>
 
-          {!audioUrl ? (
-            <div className="text-center py-4">
-              <p className="text-muted-foreground mb-3">Adicione nossa música especial</p>
+          <div className="mb-3">
+            <p className="text-sm font-medium text-foreground truncate">{MUSIC_CONFIG.title}</p>
+            <p className="text-xs text-muted-foreground">{MUSIC_CONFIG.artist}</p>
+            <p className="text-xs text-muted-foreground">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </p>
+          </div>
+
+          {/* Progress bar */}
+          <div className="mb-3">
+            <input
+              type="range"
+              min="0"
+              max={duration || 0}
+              value={currentTime}
+              onChange={handleTimeChange}
+              className="w-full h-1 bg-muted rounded-lg appearance-none cursor-pointer slider"
+            />
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
               <Button
-                onClick={() => fileInputRef.current?.click()}
+                size="sm"
+                onClick={togglePlay}
                 className="romantic-gradient text-white hover:opacity-90"
               >
-                <Music className="w-4 h-4 mr-2" />
-                Escolher Música
+                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </Button>
+              
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={toggleMute}
+              >
+                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              </Button>
+            </div>
+
+            <div className="flex items-center gap-2 flex-1 ml-3">
+              <Volume2 className="w-3 h-3 text-muted-foreground" />
               <input
-                ref={fileInputRef}
-                type="file"
-                accept="audio/*"
-                onChange={handleFileUpload}
-                className="hidden"
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="flex-1 h-1 bg-muted rounded-lg appearance-none cursor-pointer slider"
               />
             </div>
-          ) : (
-            <>
-              <div className="mb-3">
-                <p className="text-sm font-medium text-foreground truncate">{songTitle}</p>
-                <p className="text-xs text-muted-foreground">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </p>
-              </div>
+          </div>
 
-              {/* Progress bar */}
-              <div className="mb-3">
-                <input
-                  type="range"
-                  min="0"
-                  max={duration || 0}
-                  value={currentTime}
-                  onChange={handleTimeChange}
-                  className="w-full h-1 bg-muted rounded-lg appearance-none cursor-pointer slider"
-                />
-              </div>
-
-              {/* Controls */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Button
-                    size="sm"
-                    onClick={togglePlay}
-                    className="romantic-gradient text-white hover:opacity-90"
-                  >
-                    {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  </Button>
-                  
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={toggleMute}
-                  >
-                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                  </Button>
-                </div>
-
-                <div className="flex items-center gap-2 flex-1 ml-3">
-                  <Volume2 className="w-3 h-3 text-muted-foreground" />
-                  <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.1"
-                    value={volume}
-                    onChange={handleVolumeChange}
-                    className="flex-1 h-1 bg-muted rounded-lg appearance-none cursor-pointer slider"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-3 text-center">
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="text-xs"
-                >
-                  Trocar música
-                </Button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="audio/*"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
-              </div>
-            </>
-          )}
-
-          {audioUrl && (
-            <audio
-              ref={audioRef}
-              src={audioUrl}
-              onEnded={() => setIsPlaying(false)}
-            />
-          )}
+          <audio
+            ref={audioRef}
+            src={MUSIC_CONFIG.url}
+            onEnded={() => setIsPlaying(false)}
+          />
         </CardContent>
       </Card>
     </div>
