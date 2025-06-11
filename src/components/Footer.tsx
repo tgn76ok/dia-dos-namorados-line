@@ -14,8 +14,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-background/80 leading-relaxed">
-              Uma jornada através dos séculos explorando como o amor evoluiu 
-              e continua a nos inspirar nos dias de hoje.
+              Me emocinei fazendo esse site kkkk
             </p>
           </div>
 

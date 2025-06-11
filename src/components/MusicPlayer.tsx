@@ -6,15 +6,15 @@ import { Card, CardContent } from "@/components/ui/card";
 
 // Configure aqui o caminho da sua música (coloque o arquivo na pasta public/)
 const MUSIC_CONFIG = {
-  url: "/music/Marisa Monte - Ainda Bem.mp3", // Caminho relativo à pasta public
-  title: "Ainda Bem - Marisa Monte",
+  url: "public/music/Marisa Monte - Ainda Bem.mp3", // Caminho relativo à pasta public
+  title: "Meu amor leve <3",
   artist: "Nossa Música Especial"
 };
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(0.09);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(true);

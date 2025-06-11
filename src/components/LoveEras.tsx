@@ -6,7 +6,7 @@ const whyILoveYou = [
   {
     title: "Sua Personalidade",
     subtitle: "Única e Especial",
-    description: "Sua forma de ser, sua espontaneidade, sua capacidade de me fazer rir mesmo nos dias difíceis. Você tem o dom de tornar tudo mais leve e bonito.",
+    description: "Sua forma de ser, sua espontaneidade, sua capacidade de sempre seguir Convicta lidando com varias coisas ao mesmo tempo. Você tem o dom de tornar tudo mais leve e bonito.",
     icon: "✨",
     gradient: "from-amber-300 via-orange-400 to-red-500"
   },

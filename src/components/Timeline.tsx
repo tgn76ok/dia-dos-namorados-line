@@ -36,33 +36,49 @@ interface TimelineItemData {
 
 // Configure aqui os caminhos das suas mídias (coloque os arquivos na pasta public/)
 const MEDIA_CONFIG = {
-  firstMeeting: "/images/IMG-20250102-WA0006.jpg",
-  dating: "/images/IMG-20250118-WA0063.jpg", 
-  engagement: "/images/IMG-20250303-WA0015.jpg",
-  wedding: "/images/IMG-20250207-WA0069.jpeg",
-  specialVideo: "/videos/coisaslindas.mp4",
-  recentPhoto: "/images/recent.jpg"
+  firstDate: "public/img/IMG-20250118-WA0082.jpg",
+  dating: "public/img/IMG-20250118-WA0063.jpg", 
+  firstMeeting: "public/img/IMG-20250102-WA0006.jpg",
+  family: "public/img/IMG-20250207-WA0069.jpeg",
+  family2: "public/img/20250207_223445.jpg",
+  family3: "public/img/IMG-20250210-WA0029.jpg",
+  MOVIE: "public/img/IMG-20250127-WA0004.jpg",
+  specialVideo: "public/video/videolindo.mp4",
+  Pedido1: "public/img/Foto de Thiago Germano.jpg",
+  Pedido2: "public/img/IMG-20250303-WA0015.jpg",
 };
 
 const ourTimeline: TimelineItemData[] = [
-  {
-    era: "Para Mim aqui começou tudo",
+   {
+    era: "Para mim aqui começou tudo",
     period: "O Início de Tudo",
-    title: "O Dia Que Te Conheci",
-    description: "Lembro como se fosse ontem. O dia que nossos olhares se cruzaram e eu soube que algo especial estava prestes a acontecer. Seu sorriso iluminou meu mundo.",
-    color: "from-blue-400 to-cyan-500",
+    title: "Um dos primerios passos pro nosso relacionamento",
+    description: "Lembro que eu te conheci numa data qualquer,\n Mas logo percebi que não era uma gata qualquer,Eu acho que tô te querendo pra sempre,Meu pra sempre é o agora, me contento com isso,Vamos fazer amor selvagem, sou leal e leão",
+    color: "from-purple-400 to-cyan-500",
     mediaType: 'IMAGE_GALLERY',
     mediaSources: [
       MEDIA_CONFIG.firstMeeting,
+    ],
+    altText: "Fotos do nosso primeiro encontro"
+  },
+  {
+    era: "O nosso primeiro encontro",
+    period: "O dia que tive a certeza que era você",
+    title: "O nosso primeiro encontro",
+    description: "Lembro como se fosse ontem. O dia que nossos olhares se cruzaram e eu soube que algo especial estava prestes a acontecer. Seu sorriso iluminou meu mundo. quando a gente foi para a orla e pedimos para o senhores tirem uma foto nossa. ja presumindo que a gente ia ficar junto.",
+    color: "from-blue-400 to-pink-500",
+    mediaType: 'IMAGE_GALLERY',
+    mediaSources: [
+      MEDIA_CONFIG.firstDate,
       MEDIA_CONFIG.dating
     ],
     altText: "Fotos do nosso primeiro encontro"
   },
   {
-    era: "Nosso Namoro Especial",
+    era: "O Dia Que Mudou Minha Vida",
     period: "Aprendendo a Te Amar",
-    title: "Quando Você Disse Sim",
-    description: "O dia que você aceitou namorar comigo foi o mais feliz da minha vida. Desde então, cada dia ao seu lado é uma nova aventura cheia de amor e descobertas.",
+    title: "Ainda lembro do dia desse beijo, sensação maravilhosa",
+    description: "Veja o homem que sou, alguém me abençoou,Quando você me encontrou tudo clareou",
     color: "from-purple-400 to-pink-500",
     mediaType: 'VIDEO',
     mediaSources: MEDIA_CONFIG.specialVideo,
@@ -75,45 +91,55 @@ const ourTimeline: TimelineItemData[] = [
     altText: "Uma montagem em vídeo dos nossos dias de namoro"
   },
   {
-    era: "Primeiro Encontro",
-    period: "Quando Tudo Começou",
-    title: "O Dia Que Mudou Minha Vida",
-    description: "Naquele momento, eu soube que tinha encontrado algo especial. Você era ainda mais incrível do que eu imaginava. Meu coração disparou e não parou mais.",
-    color: "from-pink-400 to-rose-500",
+    era: "O primeiro cinema",
+    period: "O momento engrasado kkkk",
+    title: "Escolhi o filme errado",
+    description: "Foi um dia especial. Temos que repitir esse momento ",
+    color: "from-pink-400 to-purple-500",
     mediaType: 'SINGLE_IMAGE',
-    mediaSources: MEDIA_CONFIG.firstMeeting,
-    altText: "Nossa primeira foto juntos"
+    mediaSources: MEDIA_CONFIG.MOVIE,
+    altText: "Uma montagem em vídeo dos nossos dias de namoro"
   },
+  // {
+  //   era: "Primeiro Encontro",
+  //   period: "Quando Tudo Começou",
+  //   title: "O Dia Que Mudou Minha Vida",
+  //   description: "Naquele momento, eu soube que tinha encontrado algo especial. Você era ainda mais incrível do que eu imaginava. Meu coração disparou e não parou mais.",
+  //   color: "from-pink-400 to-rose-500",
+  //   mediaType: 'SINGLE_IMAGE',
+  //   mediaSources: MEDIA_CONFIG.firstMeeting,
+  //   altText: "Nossa primeira foto juntos"
+  // },
   {
     era: "Conhecendo a Família",
     period: "Família e Amor",
     title: "O Dia Que Conheci Sua Família",
     description: "Conhecer sua família foi um passo importante. Sua mãe me recebeu de braços abertos e seu irmão se tornou um grande amigo. Senti que fazia parte de algo maior.",
-    color: "from-pink-400 to-purple-500",
-    mediaType: 'SINGLE_IMAGE',
-    mediaSources: MEDIA_CONFIG.engagement,
+    color: "from-pink-400 to-blue-500",
+    mediaType: 'IMAGE_GALLERY',
+    mediaSources: [MEDIA_CONFIG.family2, MEDIA_CONFIG.family,MEDIA_CONFIG.family3],
     altText: "Com a família"
   },
-  {
-    era: "Nosso Futuro",
-    period: "Para Sempre",
-    title: "Construindo Nossos Sonhos",
-    description: "Cada dia planejamos nosso futuro juntos. Nossos sonhos se entrelaçam e criam a mais bela história de amor que eu poderia imaginar.",
-    color: "from-amber-400 to-orange-500",
-    mediaType: 'SINGLE_IMAGE',
-    mediaSources: MEDIA_CONFIG.wedding,
-    altText: "Nossos planos para o futuro"
+   {
+    era: "Nosso Namoro Especial",
+    period: "Aprendendo a Te Amar",
+    title: "Quando Você Disse Sim",
+    description: "O dia que você aceitou namorar comigo foi o mais feliz da minha vida. Desde então, cada dia ao seu lado é uma nova aventura cheia de amor e descobertas. Lembro o qual nervoso eu estava, tinha acabado de chover e a cadeira tava molhada, e o mlehor memto foi a gente tomando o sorvete no final",
+    color: "from-blue-400 to-purple-500",
+    mediaType: 'IMAGE_GALLERY',
+    mediaSources: [MEDIA_CONFIG.Pedido1, MEDIA_CONFIG.Pedido2],
+    altText: "Nosso pedido de namoro"
   },
-  {
-    era: "Hoje e Sempre",
-    period: "Nosso Amor Eterno",
-    title: "Te Amando Mais a Cada Dia",
-    description: "Cada dia ao seu lado é uma nova aventura. Nosso amor só cresce e você continua sendo a razão da minha felicidade e o motivo do meu sorriso.",
-    color: "from-violet-400 to-purple-500",
-    mediaType: 'SINGLE_IMAGE',
-    mediaSources: MEDIA_CONFIG.recentPhoto,
-    altText: "Nosso amor hoje"
-  }
+  // {
+  //   era: "Hoje e Sempre",
+  //   period: "Nosso Amor Eterno",
+  //   title: "Te Amando Mais a Cada Dia",
+  //   description: "Cada dia ao seu lado é uma nova aventura. Nosso amor só cresce e você continua sendo a razão da minha felicidade e o motivo do meu sorriso.",
+  //   color: "from-violet-400 to-purple-500",
+  //   mediaType: 'SINGLE_IMAGE',
+  //   mediaSources: MEDIA_CONFIG.recentPhoto,
+  //   altText: "Nosso amor hoje"
+  // }
 ];
 
 // Componente para renderizar a mídia
