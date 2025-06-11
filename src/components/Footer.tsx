@@ -44,17 +44,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-playfair font-bold text-lg mb-4">Dia dos Namorados</h3>
-            <div className="flex items-center space-x-2 mb-2">
-              <Calendar className="w-5 h-5 text-primary" />
-              <span className="text-background/80">14 de Fevereiro</span>
-            </div>
-            <p className="text-background/80 text-sm leading-relaxed">
-              Uma data especial para celebrar o amor em todas as suas formas, 
-              honrando uma tradição que atravessa culturas e gerações.
-            </p>
-          </div>
+          
         </div>
 
         <div className="border-t border-background/20 pt-8">

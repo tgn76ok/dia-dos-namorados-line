@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 import firstDate from "../img/IMG-20250118-WA0063.jpg"; // Importe a imagem do poster do vídeo
 import dating from "../img/IMG-20250102-WA0006.jpg"; // Importe a imagem do poster do vídeo
-import firstMeeting from "../img/IMG-20250102-WA0006.jpg"; // Importe a imagem do poster do vídeo
+import firstMeeting from "../img/IMG-20250118-WA0082.jpg"; // Importe a imagem do poster do vídeo
 import family from "../img/IMG-20250207-WA0069.jpeg"; // Importe a imagem do poster do vídeo
 import family2 from "../img/20250207_223445.jpg"; // Importe a imagem do poster do vídeo
 import family3 from "../img/IMG-20250210-WA0029.jpg"; // Importe a imagem do poster do vídeo
@@ -47,8 +47,8 @@ interface TimelineItemData {
 // Configure aqui os caminhos das suas mídias (coloque os arquivos na pasta public/)
 const MEDIA_CONFIG = {
   firstDate:firstDate,
-  dating: dating, 
-  firstMeeting: firstMeeting,
+  dating: firstMeeting, 
+  firstMeeting: dating,
   family: family,
   family2: family2,
   family3: family3,
