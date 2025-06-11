@@ -36,16 +36,16 @@ interface TimelineItemData {
 
 // Configure aqui os caminhos das suas mídias (coloque os arquivos na pasta public/)
 const MEDIA_CONFIG = {
-  firstDate: "public/img/IMG-20250118-WA0082.jpg",
-  dating: "public/img/IMG-20250118-WA0063.jpg", 
-  firstMeeting: "public/img/IMG-20250102-WA0006.jpg",
-  family: "public/img/IMG-20250207-WA0069.jpeg",
-  family2: "public/img/20250207_223445.jpg",
-  family3: "public/img/IMG-20250210-WA0029.jpg",
-  MOVIE: "public/img/IMG-20250127-WA0004.jpg",
-  specialVideo: "public/video/videolindo.mp4",
-  Pedido1: "public/img/Foto de Thiago Germano.jpg",
-  Pedido2: "public/img/IMG-20250303-WA0015.jpg",
+  firstDate: "src/img/IMG-20250118-WA0082.jpg",
+  dating: "src/img/IMG-20250118-WA0063.jpg", 
+  firstMeeting: "src/img/IMG-20250102-WA0006.jpg",
+  family: "src/img/IMG-20250207-WA0069.jpeg",
+  family2: "src/img/20250207_223445.jpg",
+  family3: "src/img/IMG-20250210-WA0029.jpg",
+  MOVIE: "src/img/IMG-20250127-WA0004.jpg",
+  specialVideo: "src/video/videolindo.mp4",
+  Pedido1: "src/img/Foto de Thiago Germano.jpg",
+  Pedido2: "src/img/IMG-20250303-WA0015.jpg",
 };
 
 const ourTimeline: TimelineItemData[] = [

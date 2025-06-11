@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 // Configure aqui o caminho da sua música (coloque o arquivo na pasta public/)
 const MUSIC_CONFIG = {
-  url: "public/music/Marisa Monte - Ainda Bem.mp3", // Caminho relativo à pasta public
+  url: "src/music/Marisa Monte - Ainda Bem.mp3", // Caminho relativo à pasta public
   title: "Meu amor leve <3",
   artist: "Nossa Música Especial"
 };
