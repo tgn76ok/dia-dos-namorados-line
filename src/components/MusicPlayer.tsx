@@ -3,10 +3,10 @@ import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX, Music, SkipBack, SkipForward } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
+import musica from "../music/Marisa Monte - Ainda Bem.mp3"; // Imagem opcional para o player
 // Configure aqui o caminho da sua música (coloque o arquivo na pasta public/)
 const MUSIC_CONFIG = {
-  url: "src/music/Marisa Monte - Ainda Bem.mp3", // Caminho relativo à pasta public
+  url: musica, // Caminho relativo à pasta public
   title: "Meu amor leve <3",
   artist: "Nossa Música Especial"
 };

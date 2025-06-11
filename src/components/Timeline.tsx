@@ -7,7 +7,17 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Definição dos tipos para os itens da timeline
+import firstDate from "../img/IMG-20250118-WA0063.jpg"; // Importe a imagem do poster do vídeo
+import dating from "../img/IMG-20250102-WA0006.jpg"; // Importe a imagem do poster do vídeo
+import firstMeeting from "../img/IMG-20250102-WA0006.jpg"; // Importe a imagem do poster do vídeo
+import family from "../img/IMG-20250207-WA0069.jpeg"; // Importe a imagem do poster do vídeo
+import family2 from "../img/20250207_223445.jpg"; // Importe a imagem do poster do vídeo
+import family3 from "../img/IMG-20250210-WA0029.jpg"; // Importe a imagem do poster do vídeo
+import MOVIE from "../img/IMG-20250127-WA0004.jpg"; // Importe a imagem do poster do vídeo
+import specialVideo from "../video/videolindo.mp4"; // Importe a imagem do poster do vídeo
+import Pedido1 from "../img/Foto de Thiago Germano.jpg"; // Importe a imagem do poster do vídeo
+import Pedido2 from "../img/IMG-20250303-WA0015.jpg"; // Importe a imagem do poster do vídeo
+
 interface MediaSource {
   original: string;
   thumbnail?: string;
@@ -36,16 +46,16 @@ interface TimelineItemData {
 
 // Configure aqui os caminhos das suas mídias (coloque os arquivos na pasta public/)
 const MEDIA_CONFIG = {
-  firstDate: "src/img/IMG-20250118-WA0082.jpg",
-  dating: "src/img/IMG-20250118-WA0063.jpg", 
-  firstMeeting: "src/img/IMG-20250102-WA0006.jpg",
-  family: "src/img/IMG-20250207-WA0069.jpeg",
-  family2: "src/img/20250207_223445.jpg",
-  family3: "src/img/IMG-20250210-WA0029.jpg",
-  MOVIE: "src/img/IMG-20250127-WA0004.jpg",
-  specialVideo: "src/video/videolindo.mp4",
-  Pedido1: "src/img/Foto de Thiago Germano.jpg",
-  Pedido2: "src/img/IMG-20250303-WA0015.jpg",
+  firstDate:firstDate,
+  dating: dating, 
+  firstMeeting: firstMeeting,
+  family: family,
+  family2: family2,
+  family3: family3,
+  MOVIE: MOVIE,
+  specialVideo: specialVideo,
+  Pedido1: Pedido1,
+  Pedido2: Pedido2,
 };
 
 const ourTimeline: TimelineItemData[] = [
