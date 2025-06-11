@@ -1,53 +1,247 @@
 
 import { Heart, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-// Configure aqui os caminhos das suas fotos
-const PHOTOS_CONFIG = {
-  0: "/path/to/first-date.jpg",     // Foto do primeiro encontro
-  1: "/path/to/dating.jpg",         // Foto do namoro
-  2: "/path/to/engagement.jpg",     // Foto do noivado
-  3: "/path/to/wedding.jpg",        // Foto do casamento
-  4: "/path/to/recent.jpg"          // Foto recente
+// Definição dos tipos para os itens da timeline
+interface MediaSource {
+  original: string;
+  thumbnail?: string;
+  alt?: string;
+}
+
+interface VideoOptions {
+  autoplay?: boolean;
+  controls?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+  poster?: string;
+}
+
+interface TimelineItemData {
+  era: string;
+  period: string;
+  title: string;
+  description: string;
+  color: string;
+  mediaType?: 'SINGLE_IMAGE' | 'IMAGE_GALLERY' | 'GIF' | 'VIDEO';
+  mediaSources?: string | string[] | MediaSource[];
+  altText?: string;
+  videoOptions?: VideoOptions;
+}
+
+// Configure aqui os caminhos das suas mídias (coloque os arquivos na pasta public/)
+const MEDIA_CONFIG = {
+  firstMeeting: "/images/IMG-20250102-WA0006.jpg",
+  dating: "/images/IMG-20250118-WA0063.jpg", 
+  engagement: "/images/IMG-20250303-WA0015.jpg",
+  wedding: "/images/IMG-20250207-WA0069.jpeg",
+  specialVideo: "/videos/coisaslindas.mp4",
+  recentPhoto: "/images/recent.jpg"
 };
 
-const ourTimeline = [
+const ourTimeline: TimelineItemData[] = [
+  {
+    era: "Para Mim aqui começou tudo",
+    period: "O Início de Tudo",
+    title: "O Dia Que Te Conheci",
+    description: "Lembro como se fosse ontem. O dia que nossos olhares se cruzaram e eu soube que algo especial estava prestes a acontecer. Seu sorriso iluminou meu mundo.",
+    color: "from-blue-400 to-cyan-500",
+    mediaType: 'IMAGE_GALLERY',
+    mediaSources: [
+      MEDIA_CONFIG.firstMeeting,
+      MEDIA_CONFIG.dating
+    ],
+    altText: "Fotos do nosso primeiro encontro"
+  },
+  {
+    era: "Nosso Namoro Especial",
+    period: "Aprendendo a Te Amar",
+    title: "Quando Você Disse Sim",
+    description: "O dia que você aceitou namorar comigo foi o mais feliz da minha vida. Desde então, cada dia ao seu lado é uma nova aventura cheia de amor e descobertas.",
+    color: "from-purple-400 to-pink-500",
+    mediaType: 'VIDEO',
+    mediaSources: MEDIA_CONFIG.specialVideo,
+    videoOptions: { 
+      autoplay: false, 
+      controls: true, 
+      loop: false, 
+      poster: "/images/poster_video_namoro.jpg" 
+    },
+    altText: "Uma montagem em vídeo dos nossos dias de namoro"
+  },
   {
     era: "Primeiro Encontro",
     period: "Quando Tudo Começou",
     title: "O Dia Que Mudou Minha Vida",
     description: "Naquele momento, eu soube que tinha encontrado algo especial. Você era ainda mais incrível do que eu imaginava. Meu coração disparou e não parou mais.",
-    color: "from-pink-400 to-rose-500"
+    color: "from-pink-400 to-rose-500",
+    mediaType: 'SINGLE_IMAGE',
+    mediaSources: MEDIA_CONFIG.firstMeeting,
+    altText: "Nossa primeira foto juntos"
   },
   {
-    era: "Nosso Namoro", 
-    period: "Aprendendo a Te Amar",
-    title: "Quando Você Disse Sim",
-    description: "O dia que você aceitou namorar comigo foi o mais feliz da minha vida. Finalmente podia te chamar de minha e construir nossa história juntos.",
-    color: "from-purple-400 to-pink-500"
+    era: "Conhecendo a Família",
+    period: "Família e Amor",
+    title: "O Dia Que Conheci Sua Família",
+    description: "Conhecer sua família foi um passo importante. Sua mãe me recebeu de braços abertos e seu irmão se tornou um grande amigo. Senti que fazia parte de algo maior.",
+    color: "from-pink-400 to-purple-500",
+    mediaType: 'SINGLE_IMAGE',
+    mediaSources: MEDIA_CONFIG.engagement,
+    altText: "Com a família"
   },
   {
-    era: "Noivado",
-    period: "O Pedido Mais Importante",
-    title: "Quando Te Pedi em Casamento",
-    description: "Com o coração batendo forte, te pedi para ser minha esposa. Ver suas lágrimas de felicidade foi o momento mais lindo da minha vida.",
-    color: "from-rose-400 to-red-500"
-  },
-  {
-    era: "Casamento",
+    era: "Nosso Futuro",
     period: "Para Sempre",
-    title: "O Dia Mais Especial",
-    description: "O dia que nos tornamos marido e mulher. Prometemos nos amar para sempre, na alegria e na tristeza, na saúde e na doença.",
-    color: "from-amber-400 to-orange-500"
+    title: "Construindo Nossos Sonhos",
+    description: "Cada dia planejamos nosso futuro juntos. Nossos sonhos se entrelaçam e criam a mais bela história de amor que eu poderia imaginar.",
+    color: "from-amber-400 to-orange-500",
+    mediaType: 'SINGLE_IMAGE',
+    mediaSources: MEDIA_CONFIG.wedding,
+    altText: "Nossos planos para o futuro"
   },
   {
-    era: "Hoje",
+    era: "Hoje e Sempre",
     period: "Nosso Amor Eterno",
     title: "Te Amando Mais a Cada Dia",
-    description: "Cada dia ao seu lado é uma nova aventura. Nosso amor só cresce e você continua sendo a razão da minha felicidade.",
-    color: "from-violet-400 to-purple-500"
+    description: "Cada dia ao seu lado é uma nova aventura. Nosso amor só cresce e você continua sendo a razão da minha felicidade e o motivo do meu sorriso.",
+    color: "from-violet-400 to-purple-500",
+    mediaType: 'SINGLE_IMAGE',
+    mediaSources: MEDIA_CONFIG.recentPhoto,
+    altText: "Nosso amor hoje"
   }
 ];
+
+// Componente para renderizar a mídia
+const MediaDisplay: React.FC<{ item: TimelineItemData }> = ({ item }) => {
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    target.style.display = 'none';
+    const fallbackElement = target.parentElement?.querySelector('.fallback-media-placeholder');
+    if (fallbackElement) {
+      fallbackElement.classList.remove('hidden');
+    }
+  };
+
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Erro ao carregar vídeo:', e);
+    const target = e.currentTarget;
+    target.style.display = 'none';
+    const fallbackElement = target.parentElement?.querySelector('.fallback-media-placeholder');
+    if (fallbackElement) {
+      fallbackElement.classList.remove('hidden');
+    }
+  };
+
+  switch (item.mediaType) {
+    case 'SINGLE_IMAGE':
+      return (
+        <>
+          <img
+            src={item.mediaSources as string}
+            alt={item.altText || item.era}
+            className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform hover:scale-105"
+            loading="lazy"
+            onError={handleImageError}
+          />
+          <div className="hidden fallback-media-placeholder w-full h-64 border-2 border-dashed border-primary/30 rounded-lg flex flex-col items-center justify-center bg-accent/20">
+            <Heart className="w-8 h-8 text-primary mb-3" />
+            <p className="text-center text-muted-foreground px-4">
+              Imagem não encontrada. Configure o caminho em MEDIA_CONFIG.
+            </p>
+          </div>
+        </>
+      );
+
+    case 'IMAGE_GALLERY':
+      if (!Array.isArray(item.mediaSources)) return null;
+      return (
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          spaceBetween={10}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          className="w-full h-64 rounded-lg shadow-lg"
+        >
+          {item.mediaSources.map((source, idx) => {
+            const imgSrc = typeof source === 'string' ? source : source.original;
+            const imgAlt = typeof source === 'string' ? `Slide ${idx + 1}` : source.alt || `Slide ${idx + 1}`;
+            return (
+              <SwiperSlide key={idx}>
+                <img
+                  src={imgSrc}
+                  alt={imgAlt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  onError={handleImageError}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      );
+
+    case 'VIDEO':
+      return (
+        <>
+          <video
+            src={item.mediaSources as string}
+            controls={item.videoOptions?.controls !== undefined ? item.videoOptions.controls : true}
+            autoPlay={item.videoOptions?.autoplay || false}
+            loop={item.videoOptions?.loop || false}
+            muted={item.videoOptions?.autoplay ? true : (item.videoOptions?.muted || false)}
+            playsInline
+            poster={item.videoOptions?.poster}
+            className="w-full h-64 object-cover rounded-lg shadow-lg"
+            aria-label={item.altText || item.title}
+            preload="metadata"
+            onError={handleVideoError}
+          >
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+          <div className="hidden fallback-media-placeholder w-full h-64 border-2 border-dashed border-primary/30 rounded-lg flex flex-col items-center justify-center bg-accent/20">
+            <Heart className="w-8 h-8 text-primary mb-3" />
+            <p className="text-center text-muted-foreground px-4">
+              Vídeo não encontrado. Configure o caminho em MEDIA_CONFIG.
+            </p>
+          </div>
+        </>
+      );
+
+    case 'GIF':
+      return (
+        <>
+          <img
+            src={item.mediaSources as string}
+            alt={item.altText || item.era}
+            className="w-full h-auto max-h-64 object-contain rounded-lg shadow-lg"
+            onError={handleImageError}
+          />
+          <div className="hidden fallback-media-placeholder w-full h-64 border-2 border-dashed border-primary/30 rounded-lg flex flex-col items-center justify-center bg-accent/20">
+            <Heart className="w-8 h-8 text-primary mb-3" />
+            <p className="text-center text-muted-foreground px-4">
+              GIF não encontrado. Configure o caminho em MEDIA_CONFIG.
+            </p>
+          </div>
+        </>
+      );
+
+    default:
+      return (
+        <div className="w-full h-64 border-2 border-dashed border-primary/30 rounded-lg flex flex-col items-center justify-center bg-accent/20">
+          <Heart className="w-8 h-8 text-primary mb-3" />
+          <p className="text-center text-muted-foreground px-4">
+            Configure o tipo de mídia e o caminho em MEDIA_CONFIG.
+          </p>
+        </div>
+      );
+  }
+};
 
 const Timeline = () => {
   return (
@@ -56,10 +250,10 @@ const Timeline = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-4">
             <Calendar className="w-8 h-8 text-primary mr-3" />
-            <span className="text-primary font-semibold text-lg">Dia dos Namorados</span>
+            <span className="text-primary font-semibold text-lg">Nossa História de Amor</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6 text-gradient">
-            Nossa História de Amor
+            Nossa Timeline Especial
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Cada momento vivido com você é especial e merece ser lembrado para sempre.
@@ -75,7 +269,7 @@ const Timeline = () => {
               <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Content */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
-                  <Card className="glass-effect border-primary/20 hover:border-primary/40 transition-all duration-300">
+                  <Card className="glass-effect border-primary/20 hover:border-primary/40 transition-all duration-300 hover:transform hover:scale-105">
                     <CardContent className="p-6">
                       <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold text-white mb-4 bg-gradient-to-r ${item.color}`}>
                         {item.period}
@@ -93,32 +287,17 @@ const Timeline = () => {
                   </Card>
                 </div>
 
-                {/* Timeline dot - hidden on mobile */}
+                {/* Timeline dot */}
                 <div className="relative z-10 hidden md:block">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-lg`}>
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center shadow-lg animate-pulse-heart`}>
                     <Heart className="w-6 h-6 text-white" />
                   </div>
                 </div>
 
-                {/* Image section */}
+                {/* Media section */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}>
                   <div className="relative group">
-                    <img 
-                      src={PHOTOS_CONFIG[index as keyof typeof PHOTOS_CONFIG]} 
-                      alt={item.era}
-                      className="w-full h-64 object-cover rounded-lg shadow-lg"
-                      onError={(e) => {
-                        // Fallback para quando a imagem não for encontrada
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="hidden w-full h-64 border-2 border-dashed border-primary/30 rounded-lg flex flex-col items-center justify-center bg-accent/20">
-                      <Heart className="w-8 h-8 text-primary mb-3" />
-                      <p className="text-center text-muted-foreground px-4">
-                        Configure o caminho da foto em PHOTOS_CONFIG no arquivo Timeline.tsx
-                      </p>
-                    </div>
+                    <MediaDisplay item={item} />
                   </div>
                 </div>
               </div>
